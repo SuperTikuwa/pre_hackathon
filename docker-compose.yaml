@@ -1,0 +1,28 @@
+version: "3"
+services:
+  pre_mariadb:
+    container_name: pre_mariadb
+    build: ./mariadb
+    volumes:
+      - ./mariadb/db:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: pre_db
+      MYSQL_USER: hoge
+      MYSQL_PASSWORD: hogehoge
+    ports:
+      - 3306:3306
+    # command:
+    # - "chmod 0775 docker-entrypoint-initdb.d/init-database.sh"
+    # - "./docker-entrypoint-initdb.d/init-database.sh"
+
+  pre_api:
+    container_name: pre_api
+    build: ./java
+    volumes:
+      - ./java:/app
+    ports:
+      - 8080:80
+# networks:
+#     vol1_network:
+#         external: true
