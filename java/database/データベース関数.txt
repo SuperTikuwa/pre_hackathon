@@ -1,0 +1,28 @@
+データベースに登録
+
+INSERT INTO 
+    tasks_lest(register_day,detail,person_id,deadline)
+VALUES
+    (入力日,内容,やる人(番号で),期限);
+
+
+データベースから削除
+
+DELETE FROM tasks_list
+    WHERE id = x;
+xは削除したい要素のID
+
+
+ToDoの達成
+
+UPDATE tasks_list SET completion = 1
+    WHERE id = x;
+xは達成処理をしたい要素のID
+
+
+データベースからの出力
+
+SELECT tasks_list.id,register_day,detail,deadline,person_name 
+    FROM tasks_list 
+    INNER JOIN person 
+    ON tasks_list.id = person.id;
