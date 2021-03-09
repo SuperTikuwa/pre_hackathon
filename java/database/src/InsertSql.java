@@ -2,10 +2,9 @@ package database.src;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class InsertSql {
-    public static void insert(java.sql.Date rgstr, String dtl, int prsnid, java.sql.Date ddln){
+    public static void insert(String dtl, int prsnid, java.sql.Date ddln){
         Connection conn = null;
         Statement stmt = null;
         try{
@@ -18,6 +17,8 @@ public class InsertSql {
                     "    tasks_list(register_day,detail,person_id,deadline) " +
                     "VALUES " +
                     "    (?,?,?,?);");
+            java.util.Date now = new java.util.Date();
+            java.sql.Date rgstr = new java.sql.Date(now.getTime());
             sql.setDate(1, rgstr);
             sql.setString(2,dtl);
             sql.setInt(3,prsnid);
