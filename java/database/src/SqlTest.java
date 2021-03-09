@@ -2,8 +2,8 @@ package database.src;
 
 import java.sql.*;
 
-public class SqlTest {
-    public static void main(String args[]){
+public class SqlTest{
+    public static void testprint(){
         Connection conn = null;
         Statement stmt = null;
         try{

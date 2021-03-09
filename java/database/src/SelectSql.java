@@ -12,7 +12,7 @@ public class SelectSql {
             conn = DriverManager.getConnection(
                     "jdbc:mariadb://localhost/pre_db", "hoge", "hogehoge");
             PreparedStatement sql = conn.prepareStatement(
-                    "SELECT tasks_list.id,register_day,detail,deadline,person_name " +
+                    "SELECT tasks_list.id,register_day,detail,deadline,person_name,completion " +
                             "    FROM tasks_list " +
                             "    INNER JOIN person " +
                             "    ON tasks_list.id = person.id;");

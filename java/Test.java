@@ -1,6 +1,7 @@
-public class Test{
+import static database.src.SqlTest.testprint;
+
+public class Main{
     public static void main(String[] args){
-        database.src.SqlTest t = new database.src.SqlTest();
-        t.testprint();
+        testprint();
     }
 }
